@@ -9,8 +9,8 @@
   regexp : true,    sloppy : true,       vars : false,
   white  : true
 */
-/*global $, spa */
+/*global $, analytics */
 
-var spa = (function () {
+var analytics = (function () {
     
 }());
