@@ -28,6 +28,8 @@ your local market, know your customer.
 
 # Architecture
 
+    - 
+
 # Code structure
 
     - src/analytics (web interface)
