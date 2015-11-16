@@ -1,7 +1,9 @@
+![alt tag](https://raw.github.com/7WebPages/data-adviser/master/docs/data-everywhere.png)
+
 > Know your market (c)
 
-Web based market research tool. Based on thousands personal classified ads, we can put brand value to numbers. Know
-your local market, know your customer.
+Web based market research tool. Based on thousands personal classified ads, analyzed and put together in beautiful 
+interface. We put this data into real numbers, real value. Know your market, know your customer.
 
 # TODO
 
