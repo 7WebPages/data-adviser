@@ -16,11 +16,11 @@ your local market, know your customer.
 
     - Back-end
         - ElasticSearch (full-text search, data aggregation)
-        - Apache Cassandra 3.0 (NoSQL storage)
+        - Apache Cassandra 3.0 (NoSQL storage, intermediate/aggregated data)
         - Django 1.8
         - Spider
     - Front-end
-        - webpack / jslint / mocha
+        - webpack / jslint / mocha / d3
     - Deployment
         - Ansible
     - Continuous integration (?)
