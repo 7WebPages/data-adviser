@@ -23,7 +23,8 @@ your local market, know your customer.
         - webpack / jslint / mocha / d3
     - Deployment
         - Ansible
-    - Continuous integration (?)
+    - Continuous integration
+        - Travis CI
 
 # Architecture
 
