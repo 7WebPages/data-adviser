@@ -1,5 +1,3 @@
-# e-Commerce market research tool
-
 > Know your market (c)
 
 Web based market research tool. Based on thousands personal classified ads, we can put brand value to numbers. Know
@@ -37,3 +35,13 @@ your local market, know your customer.
     - src/collector (data spiders)
     - conf          (asnible playbooks)
     - runtests.py   (runs python and javascript tests)
+    
+# Installing
+
+curl -sL https://deb.nodesource.com/setup | sudo bash -
+sudo apt-get install nodejs
+sudo apt-get install build-essential
+
+# Running tests
+
+make test
