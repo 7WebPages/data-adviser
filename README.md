@@ -31,9 +31,9 @@ your local market, know your customer.
 # Code structure
 
     - docs          (documentation)
+    - conf          (asnible playbooks)
     - src/analytics (web interface)
     - src/collector (data spiders)
-    - conf          (asnible playbooks)
     - runtests.py   (runs python and javascript tests)
     
 # Installing
@@ -41,6 +41,7 @@ your local market, know your customer.
     curl -sL https://deb.nodesource.com/setup | sudo bash -
     sudo apt-get install nodejs
     sudo apt-get install build-essential
+    sudo npm install
 
 # Running tests
 
