@@ -1,6 +1,7 @@
 MANAGE=django-admin.py
 SETTINGS=analytics.settings
+DJANGO_PATH=`pwd`/src/analytics
 
 test:
-	PYTHONPATH=`pwd`/src/analytics DJANGO_SETTINGS_MODULE=$(SETTINGS) $(MANAGE) test
+	cd $(DJANGO_PATH); PYTHONPATH=`pwd` DJANGO_SETTINGS_MODULE=$(SETTINGS) $(MANAGE) test
 
