@@ -38,10 +38,10 @@ your local market, know your customer.
     
 # Installing
 
-curl -sL https://deb.nodesource.com/setup | sudo bash -
-sudo apt-get install nodejs
-sudo apt-get install build-essential
+    curl -sL https://deb.nodesource.com/setup | sudo bash -
+    sudo apt-get install nodejs
+    sudo apt-get install build-essential
 
 # Running tests
 
-make test
+    make test
