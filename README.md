@@ -20,7 +20,7 @@ your local market, know your customer.
         - Django 1.8
         - Spider
     - Front-end
-        - webpack / jslint
+        - webpack / jslint / mocha
     - Deployment
         - Ansible
     - Continuous integration (?)
@@ -32,3 +32,4 @@ your local market, know your customer.
     - src/analytics (web interface)
     - src/collector (data spiders)
     - conf          (asnible playbooks)
+    - runtests.py   (runs python and javascript tests)

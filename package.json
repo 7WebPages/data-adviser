@@ -1,0 +1,7 @@
+{
+    "dependencies": {
+        "jslint": "latest",
+        "mocha": "2.3.4",
+        "webpack": "1.12.6"
+    }
+}
