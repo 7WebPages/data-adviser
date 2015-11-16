@@ -32,6 +32,7 @@ your local market, know your customer.
 
 # Code structure
 
+    - docs          (documentation)
     - src/analytics (web interface)
     - src/collector (data spiders)
     - conf          (asnible playbooks)
