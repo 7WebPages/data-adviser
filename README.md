@@ -28,7 +28,7 @@ your local market, know your customer.
 
 # Architecture
 
-    - 
+![alt tag](https://raw.github.com/7WebPages/data-adviser/master/docs/data_adviser.png)
 
 # Code structure
 
