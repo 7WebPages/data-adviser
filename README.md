@@ -33,7 +33,7 @@ interface. We put this data into real numbers, real value. Know your market, kno
 
 # Architecture
 
-![alt tag](https://raw.github.com/7WebPages/data-adviser/master/docs/data_adviser.png)
+![alt tag](https://raw.github.com/7WebPages/data-adviser/master/docs/data-adviser.png)
 
 # Code structure
 
