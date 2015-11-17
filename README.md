@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/7WebPages/data-adviser.svg?branch=master)](https://travis-ci.org/7WebPages/data-adviser)
 
-![codecov.io](https://codecov.io/github/7WebPages/data-adviser/branch.svg?branch=master)
+![codecov.io](https://img.shields.io/codecov/c/github/7WebPages/data-adviser/master.svg)
 
 ![alt tag](https://raw.github.com/7WebPages/data-adviser/master/docs/data-everywhere.png)
 
