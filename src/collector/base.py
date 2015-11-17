@@ -1,0 +1,2 @@
+class BaseCollector:
+    pass
