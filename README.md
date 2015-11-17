@@ -1,16 +1,7 @@
 # Data Analyzer
 
-<div style="float: left;">
-
 [![Build Status](https://travis-ci.org/7WebPages/data-adviser.svg?branch=master)](https://travis-ci.org/7WebPages/data-adviser)
-
-</div>
-
-<div style="float: right;">
-
 [![Build Status](https://codecov.io/github/7WebPages/data-adviser/coverage.svg?branch=master)](https://codecov.io/github/7WebPages/data-adviser?branch=master)
-
-</div>
 
 ![alt tag](https://raw.github.com/7WebPages/data-adviser/master/docs/data-everywhere.png)
 
@@ -29,7 +20,7 @@ interface. We put this data into real numbers, real value. Know your market, kno
 # Stack
 
     - Back-end
-        - ElasticSearch (full-text search, data aggregation)
+        - ElasticSearch 2 (full-text search, data aggregation)
         - Apache Cassandra 3.0 (NoSQL storage, intermediate/aggregated data)
         - Django 1.8
         - Spider
