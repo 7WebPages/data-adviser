@@ -10,7 +10,7 @@ env:
 
 install:
     - pip install -U tox codecov
-    - apt-get install gwenhywfar-tools
+    - sudo apt-get install gwenhywfar-tools
 script:
     - tox
 after_success:
