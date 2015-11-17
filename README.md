@@ -1,3 +1,7 @@
+# Data Analyzer
+
+[![Build Status](https://travis-ci.org/7WebPages/data-adviser.svg?branch=master)](https://travis-ci.org/7WebPages/data-adviser)
+
 ![alt tag](https://raw.github.com/7WebPages/data-adviser/master/docs/data-everywhere.png)
 
 > Know your market (c)
