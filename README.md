@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/7WebPages/data-adviser.svg?branch=master)](https://travis-ci.org/7WebPages/data-adviser)
 
+![codecov.io](https://codecov.io/github/7WebPages/data-adviser/branch.svg?branch=master)
+
 ![alt tag](https://raw.github.com/7WebPages/data-adviser/master/docs/data-everywhere.png)
 
 > Know your market (c)
