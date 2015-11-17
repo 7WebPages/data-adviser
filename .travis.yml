@@ -10,8 +10,9 @@ env:
 
 install:
     - pip install -U tox codecov
+    - apt-get install gwenhywfar-tools
 script:
     - tox
 after_success:
-    - codecov --file src/analytics/coverage.xml
-    - codecov --file src/collector/coverage.xml
+    - xmlmerge src/collector/coverage.xml src/collector/coverage.xml -o coverage.xml
+    - codecov --file coverage.xml
