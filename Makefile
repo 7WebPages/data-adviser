@@ -5,7 +5,7 @@ COLLECTOR_PATH=`pwd`/src/collector
 
 test:
 	cd $(DJANGO_PATH); PYTHONPATH=`pwd` DJANGO_SETTINGS_MODULE=$(SETTINGS) $(MANAGE) test
-	cd $(COLLECTOR_PATH); PYTHONPATH=`pwd` nosetests --with-coverage --cover-package=collector --cover-inclusive --verbosity=1
+	cd $(COLLECTOR_PATH); PYTHONPATH=`pwd` nosetests --with-coverage --cover-package=collector --cover-inclusive --verbosity=1 --cover-xml
 
 collectstatic:
 	cd $(DJANGO_PATH); PYTHONPATH=`pwd` DJANGO_SETTINGS_MODULE=$(SETTINGS) $(MANAGE) collectstatic --noinput
