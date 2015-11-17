@@ -1,5 +1,5 @@
 MANAGE=django-admin.py
-SETTINGS=analytics.settings
+SETTINGS=analytics.settings.travis
 DJANGO_PATH=`pwd`/src/analytics
 COLLECTOR_PATH=`pwd`/src/collector
 
