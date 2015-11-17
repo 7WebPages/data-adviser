@@ -13,4 +13,4 @@ install:
 script:
     - tox
 after_success:
-    - codecov --file src/analytics/coverage.xml --file src/collector/coverage.xml
+    - codecov
