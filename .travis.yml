@@ -1,7 +1,7 @@
 language: python
 python: 3.5
 
-sudo: true
+sudo: false
 env:
 - TOXENV=pypy
 - TOXENV=py33
@@ -10,9 +10,7 @@ env:
 
 install:
     - pip install -U tox codecov
-    - sudo apt-get install gwenhywfar-tools
 script:
     - tox
 after_success:
-    - xmlmerge src/collector/coverage.xml src/collector/coverage.xml -o coverage.xml
-    - codecov --file coverage.xml
+    - codecov -f src/analytics/coverage.xml src/collector/coverage.xml
