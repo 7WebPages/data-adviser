@@ -2,4 +2,9 @@
   apt: name={{ item }} update_cache={{ update_apt_cache }} force=yes state=installed
   with_items:
     - supervisor
+
+- name: Install celery globally
+  pip: name={{ item }}}
+  with_items:
     - celery
+    - flower
