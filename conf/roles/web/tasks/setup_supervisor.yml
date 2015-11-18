@@ -3,10 +3,10 @@
             dest=/etc/supervisor/conf.d/{{ application_name }}.conf
             backup=yes
 
-- name: Supervisor check {{ application_name }}
+- name: Supervisor check app
   supervisorctl: name={{ application_name }} state=present
 
-- name: Supervisor restart {{ application_name }}
+- name: Supervisor restart app
   supervisorctl: name={{ application_name }} state=restarted
 
 - name: Supervisor check flower
