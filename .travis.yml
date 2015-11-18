@@ -9,6 +9,7 @@ env:
 
 install:
     - pip install -U tox codecov
+    - npm install jslint
 script:
     - tox
 after_success:
