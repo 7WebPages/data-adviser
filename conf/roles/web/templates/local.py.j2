@@ -15,3 +15,6 @@ NOSE_ARGS = [
 RAVEN_CONFIG = {
     'dsn': ('{{ sentry_dns }}'),
 }
+
+# CELERY SETTINGS
+BROKER_URL = 'redis://localhost:6379/0'

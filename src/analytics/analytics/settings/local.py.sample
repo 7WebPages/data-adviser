@@ -11,3 +11,6 @@ NOSE_ARGS = [
     '--cover-inclusive',
     '--cover-xml',
 ]
+
+# CELERY SETTINGS
+BROKER_URL = 'redis://localhost:6379/0'
