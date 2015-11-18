@@ -7,6 +7,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.network "forwarded_port", guest: 22, host: 2227, id: 'ssh'
     config.vm.network :private_network, ip: "192.168.33.15"
 
+    config.vm.provider "virtualbox" do |v|
+        v.memory = 1024
+    end
+
     config.vm.provision "ansible" do |ansible|
         ansible.playbook = "conf/vagrant.yml"
         ansible.host_key_checking = false
