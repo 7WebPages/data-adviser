@@ -13,7 +13,6 @@
     - env_vars/base.yml
     - env_vars/dev.yml
     - env_vars/vagrant.yml
-
   roles:
     - swap
     - common
