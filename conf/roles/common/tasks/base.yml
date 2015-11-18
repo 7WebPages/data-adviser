@@ -5,7 +5,7 @@
     - libssl-dev
 
 - name: python 3.5 PPA
-  apt_repository: repo='fkrull/deadsnakes'
+  apt_repository: repo='ppa:fkrull/deadsnakes'
 
 - name: install apt packages
   apt: name={{ item }} update_cache={{ update_apt_cache }}
