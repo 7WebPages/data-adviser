@@ -1,0 +1,25 @@
+- include: copy_scripts.yml
+
+- include: setup_supervisor.yml
+
+- name: Check running applications managed by supervisor
+  shell: supervisorctl status
+  register: supervisor_applications
+  tags:
+    - celery
+    - deploy
+
+- name: Restart the {{ celery_application_name }} app
+  supervisorctl: name={{ celery_application_name }} state=restarted
+  when: supervisor_applications.stdout.find('{{ celery_application_name }}') != -1
+  tags:
+    - celery
+    - deploy
+
+- name: Install additional packages
+  apt: name={{ item }} update_cache={{ update_apt_cache }} force=yes state=installed
+  with_items:
+    - redis-server
+
+- name: Ensure the redis service is running
+  service: name=redis-server state=started enabled=yes

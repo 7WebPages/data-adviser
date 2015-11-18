@@ -1,0 +1,5 @@
+# project settings
+
+git_repo: https://github.com/7WebPages/data-adviser.git
+project_name: data-adviser
+application_name: analytics

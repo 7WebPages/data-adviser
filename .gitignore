@@ -63,3 +63,11 @@ target/
 # MacOS
 
 .DS_Store
+
+# Vagrant
+
+.vagrant
+
+# node.js
+
+node_modules/

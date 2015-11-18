@@ -1,0 +1,8 @@
+  - include: base.yml
+
+  - name: update server
+    apt: update_cache={{ update_apt_cache }}
+
+  - name: upgrade server
+    apt: upgrade=safe
+    when: upgrade_server is yes

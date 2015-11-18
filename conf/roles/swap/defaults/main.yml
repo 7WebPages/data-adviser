@@ -1,0 +1,3 @@
+swapfile_size: "{{ (ansible_memtotal_mb * 1.5) | int }}MB"
+swapfile_swappiness: 10
+swapfile_vfs_cache_pressure: 50

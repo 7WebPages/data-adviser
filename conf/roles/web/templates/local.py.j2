@@ -1,0 +1,19 @@
+from __future__ import absolute_import
+
+from .settings import *
+
+
+INSTALLED_APPS += ('django_nose',)
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-package=core',
+    '--cover-inclusive',
+    '--cover-xml',
+]
+
+RAVEN_CONFIG = {
+    'dsn': ('{{ sentry_dns }}'),
+}
