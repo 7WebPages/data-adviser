@@ -5,4 +5,4 @@
 
   - name: upgrade server
     apt: upgrade=safe
-    when: upgrade_server is yes
+    when: upgrade_server is defined
