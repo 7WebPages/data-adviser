@@ -8,3 +8,6 @@
 
 - name: Restart Supervisor
   supervisorctl: name={{ application_name }} state=restarted
+
+- name: Restart Supervisor
+  supervisorctl: name=flower state=restarted
