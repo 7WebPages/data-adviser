@@ -1,2 +1,2 @@
-class BaseCollector(object):
+class BaseCollector():
     pass
