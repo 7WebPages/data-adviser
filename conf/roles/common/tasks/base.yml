@@ -4,6 +4,9 @@
     - openssl
     - libssl-dev
 
+- name: python 3.5 PPA
+  apt_repository: repo='fkrull/deadsnakes'
+
 - name: install apt packages
   apt: name={{ item }} update_cache={{ update_apt_cache }}
   with_items:
@@ -13,6 +16,7 @@
       - python-pip
       - python-setuptools
       - libjpeg-dev
+      - python3.5
 
 - name: Install virtualenv
   pip: name=virtualenv
