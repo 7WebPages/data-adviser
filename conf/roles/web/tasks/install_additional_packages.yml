@@ -4,7 +4,5 @@
     - supervisor
 
 - name: Install celery globally
-  pip: name={{ item }}}
-  with_items:
-    - celery
-    - flower
+  pip: name=celery
+  pip: name=flower
