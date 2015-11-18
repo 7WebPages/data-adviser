@@ -9,8 +9,10 @@
   regexp : true,    sloppy : true,       vars : false,
   white  : true
 */
-/*global $, analytics */
+/*global jQuery */
 
-var analytics = (function () {
+'use strict';
+
+var analytics = (function ($) {
     
-}());
+}(jQuery));

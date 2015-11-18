@@ -1,8 +1,7 @@
 module.exports = {
-    context: __dirname + "/src/analytics/analytics/js/core",
-    entry: "core.js",
+    entry: "./src/analytics/analytics/js/core/core.js",
     output: {
-        path: __dirname + "/src/analytics/analytics/static/build",
+        path: __dirname + "/src/analytics/analytics/static/js",
         filename: "bundle.js"
     }
 }
