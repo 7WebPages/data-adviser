@@ -1,6 +1,6 @@
 - name: Ensure that the default site is disabled
   template: src=local.py.j2
-            dest={{ project_path }}/{{ application_name }}/{{ application_name }}/settings/local.py
+            dest={{ project_path }}/src/{{ application_name }}/{{ application_name }}/settings/local.py
 
 - name: Install packages required by the Django app inside virtualenv
   pip: virtualenv={{ virtualenv_path }} requirements={{ requirements_file }}
@@ -8,7 +8,7 @@
 - name: Run the Django syncdb command
   django_manage:
     command: syncdb
-    app_path: "{{ project_path }}/{{ application_name }}"
+    app_path: "{{ project_path }}/src/{{ application_name }}"
     virtualenv: "{{ virtualenv_path }}"
     settings: "{{ django_settings_file }}"
   environment: django_environment
@@ -18,7 +18,7 @@
 - name: Run Django database migrations
   django_manage:
     command: migrate
-    app_path: "{{ project_path }}/{{ application_name }}"
+    app_path: "{{ project_path }}/src/{{ application_name }}"
     virtualenv: "{{ virtualenv_path }}"
     settings: "{{ django_settings_file }}"
   environment: django_environment
@@ -28,7 +28,7 @@
 - name: Run Django collectstatic
   django_manage:
     command: collectstatic
-    app_path: "{{ project_path }}/{{ application_name }}"
+    app_path: "{{ project_path }}/src/{{ application_name }}"
     virtualenv: "{{ virtualenv_path }}"
     settings: "{{ django_settings_file }}"
   environment: django_environment
