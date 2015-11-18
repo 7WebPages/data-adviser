@@ -1,4 +1,6 @@
 -r base.txt
-flake8==2.5.0
 tox
 codecov
+django-nose==1.4.2
+coverage==4.0.2
+flake8==2.5.0
