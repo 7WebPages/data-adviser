@@ -1,5 +1,5 @@
 - name: remove old repo
-  file: path={{ project_path }}} recurse=yes state=absent
+  file: path={{ project_path }} recurse=yes state=absent
 
 - name: Setup the Git repo
   git: repo={{ git_repo }}
