@@ -1,5 +1,5 @@
 - name: Install Supervisor
-  apt: name=supervisor update_cache={{ update_apt_cache }} state=installed
+  pip: name=supervisor executable=pip3
   tags:
     - celery
 
