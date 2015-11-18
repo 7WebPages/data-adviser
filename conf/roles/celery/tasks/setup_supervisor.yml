@@ -1,8 +1,3 @@
-- name: Install Supervisor
-  pip: name=supervisor executable=pip3
-  tags:
-    - celery
-
 - name: Ensure supervisor service is started
   service: name=supervisor state=started enabled=yes
   tags:
