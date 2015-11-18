@@ -11,14 +11,14 @@
             dest=/etc/nginx/sites-available/{{ application_name }}
             backup=yes
   notify: reload nginx
-  when: enable_ssl is defined
+  when: vagrant is not defined
 
 - name: Create the Nginx configuration file
   template: src=nginx_site_config.j2
             dest=/etc/nginx/sites-available/{{ application_name }}
             backup=yes
   notify: reload nginx
-  when: enable_ssl is not defined
+  when: vagrant is defined
 
 - name: Ensure that the default site is disabled
   command: rm /etc/nginx/sites-enabled/default
