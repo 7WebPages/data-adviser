@@ -8,9 +8,11 @@ run:
 	cd $(DJANGO_PATH); PYTHONPATH=`pwd` DJANGO_SETTINGS_MODULE=$(SETTINGS) $(MANAGE) runserver 0.0.0.0:8000
 
 test:
+	rm -f src/analytics/.coverage
+	rm -f src/collector/.coverage
 	cd $(DJANGO_PATH); PYTHONPATH=`pwd` DJANGO_SETTINGS_MODULE=$(CI_SETTINGS) $(MANAGE) test
 	cd $(COLLECTOR_PATH); PYTHONPATH=`pwd` nosetests --with-coverage --cover-package=collector --cover-inclusive --verbosity=1 --cover-xml
-	jslint src/analytics/analytics/js/core/*
+	# jslint src/analytics/analytics/js/core/*
 
 collectstatic:
 	cd $(DJANGO_PATH); PYTHONPATH=`pwd` DJANGO_SETTINGS_MODULE=$(SETTINGS) $(MANAGE) collectstatic --noinput
