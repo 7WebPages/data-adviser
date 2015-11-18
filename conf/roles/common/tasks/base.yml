@@ -19,7 +19,7 @@
       - python3.5
 
 - name: Install virtualenv
-  pip: name=virtualenv
+  pip: name=virtualenv executable=pip3
 
 - name: set locale.gen file
   locale_gen: name=en_US.UTF-8 state=present
