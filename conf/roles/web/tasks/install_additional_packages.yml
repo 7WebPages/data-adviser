@@ -1,4 +1,4 @@
 - name: Install Supervisor
-  pip: name=supervisor executable=pip3
+  pip: name=supervisor
   tags:
     - celery
