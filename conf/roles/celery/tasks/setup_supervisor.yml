@@ -25,6 +25,14 @@
   tags:
     - celery
 
+- name: Create the flower log file
+  file: path={{ flower_log_file }}
+        owner={{ celery_user }}
+        group={{ celery_group }}
+        state=touch
+  tags:
+    - celery
+
 - name: Re-read the Supervisor config files
   command: supervisorctl reread
   tags:
