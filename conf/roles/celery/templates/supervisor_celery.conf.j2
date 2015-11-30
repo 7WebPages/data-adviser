@@ -24,5 +24,5 @@ redirect_stderr = true
 command = {{ virtualenv_path }}/bin/celery flower -A analytics --address=0.0.0.0 --port=5555 --broker=redis://localhost:6379/0
 user = {{ gunicorn_user }}
 directory = {{ project_path }}/src/{{ application_name }}
-stdout_logfile = "{{ flower_log_file }}"
+stdout_logfile={{ flower_log_file }}
 redirect_stderr = true
