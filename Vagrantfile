@@ -1,21 +1,49 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-
-    config.vm.box = "ubuntu/trusty64"
-    config.vm.network "forwarded_port", guest: 80, host: 8080
-    config.vm.network "forwarded_port", guest: 5555, host: 5555
-    config.vm.network "forwarded_port", guest: 22, host: 2227, id: 'ssh'
-    config.vm.network :private_network, ip: "192.168.33.15"
-
     config.vm.provider "virtualbox" do |v|
-        v.memory = 1024
+        v.memory = 256
+        v.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
     end
 
-    config.vm.provision "ansible" do |ansible|
-        ansible.playbook = "conf/vagrant.yml"
-        ansible.host_key_checking = false
-        ansible.verbose = "v"
+    # Django
+    config.vm.define "web1" do |app|
+        app.vm.hostname = "data-web1.dev"
+        app.vm.box = "ubuntu/trusty64"
+        app.vm.network :private_network, ip: "192.168.61.4"
+        app.vm.network "forwarded_port", guest: 22, host: 2227, id: 'ssh'
+    end
+
+    # Celery & queue server (Redis)
+    config.vm.define "celery1" do |app|
+        app.vm.hostname = "data-celery1.dev"
+        app.vm.box = "ubuntu/trusty64"
+        app.vm.network :private_network, ip: "192.168.61.5"
+        app.vm.network "forwarded_port", guest: 22, host: 2227, id: 'ssh'
+    end
+
+    # PostgreSQL (db) & Apache Cassandra (Cache)
+    config.vm.define "db1" do |app|
+        app.vm.hostname = "data-db.dev"
+        app.vm.box = "ubuntu/trusty64"
+        app.vm.network :private_network, ip: "192.168.61.6"
+        app.vm.network "forwarded_port", guest: 22, host: 2227, id: 'ssh'
+    end
+
+    # collector
+    config.vm.define "collector1" do |app|
+        app.vm.hostname = "data-collector.dev"
+        app.vm.box = "ubuntu/trusty64"
+        app.vm.network :private_network, ip: "192.168.61.7"
+        app.vm.network "forwarded_port", guest: 22, host: 2227, id: 'ssh'
+    end
+
+    # Elasticsearch
+    config.vm.define "elastic1" do |app|
+        app.vm.hostname = "data-elastic.dev"
+        app.vm.box = "ubuntu/trusty64"
+        app.vm.network :private_network, ip: "192.168.61.8"
+        app.vm.network "forwarded_port", guest: 22, host: 2227, id: 'ssh'
     end
 
 end

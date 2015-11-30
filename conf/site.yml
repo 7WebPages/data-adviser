@@ -1,0 +1,9 @@
+---
+
+- include: base.yml
+#- include: webservers.yml
+#- include: dbservers.yml
+#- include: cacheservers.yml
+#- include: celeryservers.yml
+#- include: collectorservers.yml
+#- include: elasticservers.yml

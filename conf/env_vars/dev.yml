@@ -1,18 +1,21 @@
-# local settings
-
 git_branch: master
 
 gunicorn_num_workers: 3
 gunicorn_max_requests: 0
 
-django_settings_file: "{{ application_name }}.settings"
-django_secret_key: "x%13kw27zvx3=b3ee1tsp@bkof-8s3m+zqgkd+v64vsgkggq92"
+# Database settings
 
-sentry_dns: http://9d4f28acb6224db7bf34c497fd1e5651:f12bfce799c14abe86ca6c875a35a318@sentry.7webpages.com/12
+db_host: 127.0.0.1
+db_user: "{{ application_name }}"
+db_name: "{{ application_name }}"
+db_password: password
+
+django_settings_file: "{{ application_name }}.settings"
+django_secret_key: "{{ django_secret_key }}"
 
 ssl_dest_dir: /etc/ssl
 
-nginx_server_name: localhost
+nginx_server_name: data-web1.dev
 
 run_django_sync_db: yes
 run_django_db_migrations: yes
@@ -20,4 +23,4 @@ run_django_collectstatic: yes
 
 openssl_params: /CN=artyomboyko.com/O=Artyom Boyko/C=UA
 
-celery_num_workers: 1
+celery_num_workers: 2

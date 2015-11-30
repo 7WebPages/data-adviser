@@ -2,4 +2,4 @@ ansible_ssh_user: vagrant
 ansible_ssh_pass: vagrant
 ansible_sudo: true
 
-gunicorn_num_workers: 3
+vagrant: yes
