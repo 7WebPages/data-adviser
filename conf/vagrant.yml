@@ -18,3 +18,4 @@
     - common
     - web
     - celery
+    - db
