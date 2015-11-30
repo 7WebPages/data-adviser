@@ -19,7 +19,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         app.vm.hostname = "data-celery1.dev"
         app.vm.box = "ubuntu/trusty64"
         app.vm.network :private_network, ip: "192.168.61.5"
-        app.vm.network "forwarded_port", guest: 22, host: 2227, id: 'ssh'
+        app.vm.network "forwarded_port", guest: 22, host: 2228, id: 'ssh'
     end
 
     # PostgreSQL (db) & Apache Cassandra (Cache)
@@ -27,7 +27,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         app.vm.hostname = "data-db.dev"
         app.vm.box = "ubuntu/trusty64"
         app.vm.network :private_network, ip: "192.168.61.6"
-        app.vm.network "forwarded_port", guest: 22, host: 2227, id: 'ssh'
+        app.vm.network "forwarded_port", guest: 22, host: 2229, id: 'ssh'
     end
 
     # collector
@@ -35,7 +35,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         app.vm.hostname = "data-collector.dev"
         app.vm.box = "ubuntu/trusty64"
         app.vm.network :private_network, ip: "192.168.61.7"
-        app.vm.network "forwarded_port", guest: 22, host: 2227, id: 'ssh'
+        app.vm.network "forwarded_port", guest: 22, host: 2230, id: 'ssh'
     end
 
     # Elasticsearch
@@ -43,7 +43,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         app.vm.hostname = "data-elastic.dev"
         app.vm.box = "ubuntu/trusty64"
         app.vm.network :private_network, ip: "192.168.61.8"
-        app.vm.network "forwarded_port", guest: 22, host: 2227, id: 'ssh'
+        app.vm.network "forwarded_port", guest: 22, host: 2231, id: 'ssh'
     end
 
 end
