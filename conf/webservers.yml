@@ -2,9 +2,6 @@
 
 - name: Create a {{ application_name }} virtual machine via vagrant
   hosts: django-servers
-  sudo: yes
-  sudo_user: root
-  remote_user: vagrant
   vars_files:
     - env_vars/base.yml
     - env_vars/private.yml
