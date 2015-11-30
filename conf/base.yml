@@ -1,7 +1,7 @@
 ---
 
 - name: Apply common configuration to all hosts
-  hosts: django-servers
+  hosts: all
   roles:
     - swap
     - common
