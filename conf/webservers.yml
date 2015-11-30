@@ -5,6 +5,6 @@
   vars_files:
     - env_vars/base.yml
     - env_vars/private.yml
-    - env_vars/"{{ env }}".yml
+    - env_vars/{{ env }}.yml
   roles:
     - web
