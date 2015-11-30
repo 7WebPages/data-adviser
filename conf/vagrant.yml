@@ -16,6 +16,6 @@
   roles:
     - swap
     - common
+    - db
     - web
     - celery
-    - db
