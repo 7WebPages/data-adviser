@@ -39,7 +39,7 @@
         method: POST
         HEADER_Authorization: "Bearer {{ digitalocean_api_key }}"
         body_format: json
-        body: "{"name": "{{ item.item.value.name }}", "ip_address": "{{ item.droplet.ip_address }}"}"
+        body: "{\"name\": \"{{ item.item.value.name }}\", \"ip_address\": \"{{ item.droplet.ip_address }}\"}"
       with_items: "{{ registered_droplets.results }}"
 
     - debug: msg="ID is {{ item.droplet.id }}, IP is {{ item.droplet.ip_address }}"
