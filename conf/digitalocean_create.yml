@@ -32,4 +32,5 @@
     - debug: msg="ID is {{ item.droplet.id }}, IP is {{ item.droplet.ip_address }}"
       with_items: "{{ registered_droplets.results }}"
 
+    # - local_action: template src=templates/inventory_template.j2 dest="{{ inventory_dir }}/production"
     - local_action: template src=templates/hosts_template.j2 dest="{{ inventory_dir }}/production_hosts.yml"
