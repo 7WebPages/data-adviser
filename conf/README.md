@@ -2,6 +2,7 @@
 
 sudo pip install --upgrade git+https://github.com/ansible/ansible.git@devel
 sudo pip install 'dopy>=0.3.5,<=0.3.5'
+sudo pip install httplib2
 
 # MacOS
 brew install https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Library/Formula/sshpass.rb
