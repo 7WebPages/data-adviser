@@ -8,4 +8,4 @@ do_region: ams2 # Amsterdam
 do_image: 14530089 # Ubuntu 14.04.3 x64
 
 do_droplets:
-    django: {name: "data-adviser.com", size: 512mb}
+    django: {id: 701, name: "data-adviser.com", size: 512mb}
