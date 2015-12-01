@@ -32,11 +32,4 @@
     - debug: msg="ID is {{ item.droplet.id }}, IP is {{ item.droplet.ip_address }}"
       with_items: "{{ registered_droplets.results }}"
 
-    - name: Add new droplet to inventory
-      add_host: >
-        name="{{ item.item.value.name }}"
-        groups=digitalocean_hosts
-        ansible_ssh_host="{{ item.droplet.ip_address }}"
-        ansible_ssh_user=root
-        ansible_ssh_private_key_file="{{ do_ssh_private_key }}"
-      with_items: "{{ registered_droplets.results }}"
+    - local_action: template src=templates/hosts_template.j2 dest="{{ inventory_dir }}/production_hosts"
