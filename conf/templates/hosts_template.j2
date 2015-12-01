@@ -1,0 +1,4 @@
+production_servers:
+{% for item in registered_droplets.results %}
+    {{ item.item.key }}: {name: "{{ item.item.value.name }}", ip: "{{ item.droplet.ip_address }}", id: "item.droplet.id"}
+{% endfor %}

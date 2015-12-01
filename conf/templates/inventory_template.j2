@@ -1,0 +1,38 @@
+ubuntu-vagrant1 ansible_ssh_host=127.0.0.1 ansible_ssh_port=2227
+ubuntu-vagrant2 ansible_ssh_host=127.0.0.1 ansible_ssh_port=2228
+ubuntu-vagrant3 ansible_ssh_host=127.0.0.1 ansible_ssh_port=2229
+ubuntu-vagrant4 ansible_ssh_host=127.0.0.1 ansible_ssh_port=2230
+ubuntu-vagrant5 ansible_ssh_host=127.0.0.1 ansible_ssh_port=2231
+
+[prodservers:children]
+django-servers
+postgresql-servers
+queue-servers
+celery-workers
+cache-servers
+elastic-servers
+
+[django-servers]
+ubuntu-vagrant1
+
+[queue-servers]
+ubuntu-vagrant2
+
+[collector-servers]
+ubuntu-vagrant4
+
+[postgresql-servers]
+ubuntu-vagrant3
+
+[celery-workers]
+ubuntu-vagrant2
+
+[cache-servers]
+ubuntu-vagrant3
+
+[elastic-servers]
+ubuntu-vagrant5
+
+[all:vars]
+env=prod
+nginx_server_name=data-adviser.com

@@ -4,15 +4,13 @@
   vars_files:
     - env_vars/digitalocean.yml
     - env_vars/private.yml
+    - production_hosts.yxml
 
   tasks:
     - name: Delete droplets
       digital_ocean: >
         state=absent
-        name={{ item.value.name }}
-        size_id={{ item.value.size }}
-        region_id={{ do_region }}
-        image_id={{ do_image }}
+        id={{ item.id }}
         api_token="{{ digitalocean_api_key }}"
         wait_timeout=500
-      with_dict: "{{ do_droplets }}"
+      with_dict: "{{ production_servers }}"
