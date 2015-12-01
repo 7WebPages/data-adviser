@@ -18,9 +18,8 @@
     - name: Delete DNS
       digital_ocean_domain: >
         state=absent
-        ip={{ item.droplet.ip_address }}
+        id={{ item.value.id }}
         api_token="{{ digitalocean_api_key }}"
-        wait_timeout={{ do_timeout }}
       with_dict: "{{ production_servers }}"
 
     - local_action: file path="{{ inventory_dir }}/production_hosts.yml" state=absent
