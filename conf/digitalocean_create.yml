@@ -23,14 +23,27 @@
         private_networking=yes
         size_id={{ item.value.size }}
         region_id={{ do_region }}
+        unique_name=yes
         image_id={{ do_image }}
         api_token="{{ digitalocean_api_key }}"
-        wait_timeout=500
+        wait_timeout={{ do_timeout }}
       with_dict: "{{ do_droplets }}"
       register: registered_droplets
+
+    - debug: msg="DEBUG {{ item }} }}"
+      with_items: "{{ registered_droplets.results }}"
+
+    - name: Create DNS records
+      digital_ocean_domain: >
+        state=present
+        name="{{ item.item.value.name }}"
+        ip="{{ item.droplet.ip_address }}"
+        api_key={{ digitalocean_api_key }}
+        wait_timeout={{ do_timeout }}
+      with_items: "{{ registered_droplets.results }}"
 
     - debug: msg="ID is {{ item.droplet.id }}, IP is {{ item.droplet.ip_address }}"
       with_items: "{{ registered_droplets.results }}"
 
-    # - local_action: template src=templates/inventory_template.j2 dest="{{ inventory_dir }}/production"
     - local_action: template src=templates/hosts_template.j2 dest="{{ inventory_dir }}/production_hosts.yml"
+    # - local_action: template src=templates/inventory_template.j2 dest="{{ inventory_dir }}/production"
