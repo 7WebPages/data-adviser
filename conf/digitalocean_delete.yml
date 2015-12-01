@@ -17,6 +17,7 @@
 
     - name: Delete DNS records
       uri:
+        status_code: 201
         url: "https://api.digitalocean.com/v2/domains/{{ item.item.value.name }}"
         method: DELETE
         HEADER_Authorization: "Bearer {{ digitalocean_api_key }}"

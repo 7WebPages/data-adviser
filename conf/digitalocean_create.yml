@@ -32,6 +32,7 @@
 
     - name: Create DNS records
       uri:
+        status_code: 201
         url: https://api.digitalocean.com/v2/domains
         method: POST
         HEADER_Authorization: "Bearer {{ digitalocean_api_key }}"
