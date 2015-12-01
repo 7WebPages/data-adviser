@@ -1,0 +1,29 @@
+---
+
+- hosts: localhost
+  vars_files:
+    - env_vars/digitalocean.yml
+    - env_vars/private.yml
+
+  tasks:
+    - name: Check ssh key
+      ignore_errors: yes
+      digital_ocean: >
+        state=present
+        command=ssh
+        name="{{ do_ssh_name }}"
+        ssh_pub_key="{{ do_ssh_pub_key }}"
+        api_token="{{ digitalocean_api_key }}"
+
+    - name: Create droplets
+      digital_ocean: >
+        state=present
+        command=droplet
+        name={{ item.value.name }}
+        private_networking=yes
+        size_id={{ item.value.size }}
+        region_id={{ do_region }}
+        image_id={{ do_image }}
+        api_token="{{ digitalocean_api_key }}"
+        wait_timeout=500
+      with_dict: "{{ do_droplets }}"

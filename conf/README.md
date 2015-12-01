@@ -1,5 +1,8 @@
 # MacOS
 
+sudo pip install --upgrade git+https://github.com/ansible/ansible.git@devel
+sudo pip install 'dopy>=0.3.5,<=0.3.5'
+
 brew install https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Library/Formula/sshpass.rb
 
 cp conf/ansible.cfg ~/.ansible.cfg
@@ -13,3 +16,5 @@ ansible-vault edit conf/env_vars/private.yml --vault-password-file conf/password
 
 ansible-playbook -i development site.yml --vault-password-file password.txt
 ansible-playbook -i production site.yml --vault-password-file password.txt
+
+ansible-playbook -i production digitalocean_create.yml --vault-password-file password.txt -vvvv
