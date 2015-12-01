@@ -15,11 +15,11 @@
         wait_timeout={{ do_timeout }}
       with_dict: "{{ production_servers }}"
 
-    - name: Delete DNS
-      digital_ocean_domain: >
-        state=absent
-        id={{ item.value.id }}
-        api_token="{{ digitalocean_api_key }}"
-      with_dict: "{{ production_servers }}"
+    - name: Delete DNS records
+      uri:
+        url: "https://api.digitalocean.com/v2/domains/{{ item.item.value.name }}"
+        method: DELETE
+        HEADER_Authorization: "Bearer {{ digitalocean_api_key }}"
+      with_items: "{{ registered_droplets.results }}"
 
     - local_action: file path="{{ inventory_dir }}/production_hosts.yml" state=absent
