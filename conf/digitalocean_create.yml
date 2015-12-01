@@ -30,9 +30,6 @@
       with_dict: "{{ do_droplets }}"
       register: registered_droplets
 
-    - debug: msg="DEBUG {{ item }} }}"
-      with_items: "{{ registered_droplets.results }}"
-
     - name: Create DNS records
       uri:
         url: https://api.digitalocean.com/v2/domains
