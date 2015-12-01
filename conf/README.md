@@ -1,13 +1,15 @@
 # Install
 
 sudo pip install --upgrade git+https://github.com/ansible/ansible.git@devel
-sudo pip install 'dopy>=0.3.5,<=0.3.5'
+sudo pip install 'dopy>=0.3.6,<=0.3.6'
 sudo pip install httplib2
+
+Issues:
+    https://github.com/ansible/ansible-modules-core/issues/2509
+    https://github.com/ansible/ansible-modules-core/issues/1412
 
 # MacOS
 brew install https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Library/Formula/sshpass.rb
-
-cp conf/ansible.cfg ~/.ansible.cfg
 
 ansible-playbook -i development site.yml --ask-vault-pass
 ansible-playbook -i production site.yml --ask-vault-pass
