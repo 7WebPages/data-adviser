@@ -17,10 +17,10 @@
 
     - name: Delete DNS records
       uri:
-        status_code: 201
-        url: "https://api.digitalocean.com/v2/domains/{{ item.item.value.name }}"
+        status_code: 204
+        url: "https://api.digitalocean.com/v2/domains/{{ item.value.name }}"
         method: DELETE
         HEADER_Authorization: "Bearer {{ digitalocean_api_key }}"
-      with_items: "{{ registered_droplets.results }}"
+      with_dict: "{{ production_servers }}"
 
     - local_action: file path="{{ inventory_dir }}/production_hosts.yml" state=absent
