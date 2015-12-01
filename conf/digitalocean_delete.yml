@@ -8,9 +8,7 @@
   tasks:
     - name: Delete droplets
       digital_ocean: >
-        state=deleted
-        command=droplet
-        id={{ item.value.id }}
+        state=absent
         name={{ item.value.name }}
         size_id={{ item.value.size }}
         region_id={{ do_region }}
