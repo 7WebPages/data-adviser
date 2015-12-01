@@ -21,6 +21,7 @@
         command=droplet
         name={{ item.value.name }}
         private_networking=yes
+        ssh_key_ids={{ do_ssh_name }}
         size_id={{ item.value.size }}
         region_id={{ do_region }}
         unique_name=yes

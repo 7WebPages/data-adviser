@@ -11,3 +11,4 @@ do_timeout: 500
 
 do_droplets:
     django: {name: "data-adviser.com", size: 512mb}
+    db: {name: "db.data-adviser.com", size: 512mb}
