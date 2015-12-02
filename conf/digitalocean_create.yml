@@ -36,16 +36,16 @@
       digital_ocean: >
         state=present
         command=droplet
-        name={{ item.value.name }}
+        name={{ item.name }}
         private_networking=yes
         ssh_key_ids={{ ssh_key_id }}
-        size_id={{ item.value.size }}
+        size_id={{ item.size }}
         region_id={{ do_region }}
         unique_name=yes
         image_id={{ do_image }}
         api_token="{{ digitalocean_api_key }}"
         wait_timeout={{ do_timeout }}
-      with_dict: "{{ do_droplets }}"
+      with_items: "{{ do_droplets }}"
       register: registered_droplets
 
     - name: Create DNS records
@@ -55,7 +55,7 @@
         method: POST
         HEADER_Authorization: "Bearer {{ digitalocean_api_key }}"
         body_format: json
-        body: "{\"name\": \"{{ item.item.value.name }}\", \"ip_address\": \"{{ item.droplet.ip_address }}\"}"
+        body: "{\"name\": \"{{ item.item.name }}\", \"ip_address\": \"{{ item.droplet.ip_address }}\"}"
       with_items: "{{ registered_droplets.results }}"
 
     - debug: msg="ID is {{ item.droplet.id }}, IP is {{ item.droplet.ip_address }}"

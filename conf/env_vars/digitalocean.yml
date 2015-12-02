@@ -9,6 +9,16 @@ do_image: 14530089 # Ubuntu 14.04.3 x64
 
 do_timeout: 500
 
+# possible roles: django, queue, collector, postgresql, celery, cache, elastic
+
 do_droplets:
-    django: {name: "data-adviser.com", size: 512mb}
-    db: {name: "db.data-adviser.com", size: 512mb}
+    - {
+        name: "data-adviser.com",
+        size: 512mb,
+        roles: ['web']
+       }
+    - {
+        name: "db.data-adviser.com",
+        size: 512mb,
+        roles: ['db']
+      }
