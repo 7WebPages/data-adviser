@@ -1,4 +1,4 @@
 production_servers:
 {% for item in registered_droplets.results %}
-    {{ item.item.key }}: {name: "{{ item.item.value.name }}", ip: "{{ item.droplet.ip_address }}", id: "{{ item.droplet.id }}"}
+    {{ item.item.key }}: {name: "{{ item.item.value.name }}", public: "{% for ip in item.droplet.networks.v4 %}{% if ip.type == 'public' %}{{ ip.ip_address }}{% endif %}{% endfor %}", ip: "{{ item.droplet.ip_address }}", id: "{{ item.droplet.id }} "}
 {% endfor %}
