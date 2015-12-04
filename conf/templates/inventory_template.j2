@@ -15,7 +15,6 @@ elastic-servers
 {% for item in registered_droplets.results %}
 {% if 'django' in item.item.roles %}
 skipdns.{{ item.item.name }}
-
 {% endif %}
 {% endfor %}
 
@@ -23,7 +22,6 @@ skipdns.{{ item.item.name }}
 {% for item in registered_droplets.results %}
 {% if 'queue' in item.item.roles %}
 skipdns.{{ item.item.name }}
-
 {% endif %}
 {% endfor %}
 
@@ -31,7 +29,6 @@ skipdns.{{ item.item.name }}
 {% for item in registered_droplets.results %}
 {% if 'collector' in item.item.roles %}
 skipdns.{{ item.item.name }}
-
 {% endif %}
 {% endfor %}
 
@@ -39,7 +36,6 @@ skipdns.{{ item.item.name }}
 {% for item in registered_droplets.results %}
 {% if 'postgresql' in item.item.roles %}
 skipdns.{{ item.item.name }}
-
 {% endif %}
 {% endfor %}
 
@@ -47,7 +43,6 @@ skipdns.{{ item.item.name }}
 {% for item in registered_droplets.results %}
 {% if 'celery' in item.item.roles %}
 skipdns.{{ item.item.name }}
-
 {% endif %}
 {% endfor %}
 
@@ -55,7 +50,6 @@ skipdns.{{ item.item.name }}
 {% for item in registered_droplets.results %}
 {% if 'cache' in item.item.roles %}
 skipdns.{{ item.item.name }}
-
 {% endif %}
 {% endfor %}
 
@@ -63,7 +57,6 @@ skipdns.{{ item.item.name }}
 {% for item in registered_droplets.results %}
 {% if 'elastic' in item.item.roles %}
 skipdns.{{ item.item.name }}
-
 {% endif %}
 {% endfor %}
 
