@@ -1,8 +1,7 @@
-ubuntu-vagrant1 ansible_ssh_host=127.0.0.1 ansible_ssh_port=2227
-ubuntu-vagrant2 ansible_ssh_host=127.0.0.1 ansible_ssh_port=2228
-ubuntu-vagrant3 ansible_ssh_host=127.0.0.1 ansible_ssh_port=2229
-ubuntu-vagrant4 ansible_ssh_host=127.0.0.1 ansible_ssh_port=2230
-ubuntu-vagrant5 ansible_ssh_host=127.0.0.1 ansible_ssh_port=2231
+{% for item in registered_droplets.results %}
+skipdns.{{ item.item.name }} ansible_ssh_host={% for ip in item.droplet.networks.v4 %}{% if ip.type == 'public' %}{{ ip.ip_address }}{% endif %}{% endfor %}
+
+{% endfor %}
 
 [prodservers:children]
 django-servers
@@ -13,25 +12,60 @@ cache-servers
 elastic-servers
 
 [django-servers]
-ubuntu-vagrant1
+{% for item in registered_droplets.results %}
+{% if 'django' in item.item.roles %}
+skipdns.{{ item.item.name }}
+
+{% endif %}
+{% endfor %}
 
 [queue-servers]
-ubuntu-vagrant2
+{% for item in registered_droplets.results %}
+{% if 'queue' in item.item.roles %}
+skipdns.{{ item.item.name }}
+
+{% endif %}
+{% endfor %}
 
 [collector-servers]
-ubuntu-vagrant4
+{% for item in registered_droplets.results %}
+{% if 'collector' in item.item.roles %}
+skipdns.{{ item.item.name }}
+
+{% endif %}
+{% endfor %}
 
 [postgresql-servers]
-ubuntu-vagrant3
+{% for item in registered_droplets.results %}
+{% if 'postgresql' in item.item.roles %}
+skipdns.{{ item.item.name }}
+
+{% endif %}
+{% endfor %}
 
 [celery-workers]
-ubuntu-vagrant2
+{% for item in registered_droplets.results %}
+{% if 'celery' in item.item.roles %}
+skipdns.{{ item.item.name }}
+
+{% endif %}
+{% endfor %}
 
 [cache-servers]
-ubuntu-vagrant3
+{% for item in registered_droplets.results %}
+{% if 'cache' in item.item.roles %}
+skipdns.{{ item.item.name }}
+
+{% endif %}
+{% endfor %}
 
 [elastic-servers]
-ubuntu-vagrant5
+{% for item in registered_droplets.results %}
+{% if 'elastic' in item.item.roles %}
+skipdns.{{ item.item.name }}
+
+{% endif %}
+{% endfor %}
 
 [all:vars]
 env=prod

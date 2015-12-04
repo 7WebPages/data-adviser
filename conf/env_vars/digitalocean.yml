@@ -15,10 +15,20 @@ do_droplets:
     - {
         name: "data-adviser.com",
         size: 512mb,
-        roles: ['web']
+        roles: ['django']
        }
     - {
         name: "db.data-adviser.com",
         size: 512mb,
-        roles: ['db']
+        roles: ['postgresql', 'cache']
+      }
+    - {
+        name: "queue.data-adviser.com",
+        size: 512mb,
+        roles: ['celery', 'queue']
+      }
+    - {
+        name: "elastic.data-adviser.com",
+        size: 512mb,
+        roles: ['collector', 'elastic']
       }

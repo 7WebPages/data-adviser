@@ -14,7 +14,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         app.vm.network "forwarded_port", guest: 22, host: 2227, id: 'ssh'
     end
 
-    # Celery & queue server (Redis)
+    # Celery & queue server (RabbitMQ)
     config.vm.define "celery1" do |app|
         app.vm.hostname = "data-celery1.dev"
         app.vm.box = "ubuntu/trusty64"
