@@ -5,5 +5,5 @@
   apt: name={{ item }} update_cache={{ update_apt_cache }} state=installed
   with_items:
     - libpq-dev
-    - python-psycopg2
+    - python3-psycopg2
   tags: packages
