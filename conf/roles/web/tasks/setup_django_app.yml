@@ -11,7 +11,7 @@
     app_path: "{{ project_path }}/src/{{ application_name }}"
     virtualenv: "{{ virtualenv_path }}"
     settings: "{{ django_settings_file }}"
-  environment: django_environment
+  environment: "{{ django_environment }}"
   when: run_django_syncdb is defined and run_django_sync_db
   tags: django.syncdb
 
@@ -21,7 +21,7 @@
     app_path: "{{ project_path }}/src/{{ application_name }}"
     virtualenv: "{{ virtualenv_path }}"
     settings: "{{ django_settings_file }}"
-  environment: django_environment
+  environment: "{{ django_environment }}"
   when: run_django_db_migrations is defined and run_django_db_migrations
   tags: django.migrate
 
@@ -31,6 +31,6 @@
     app_path: "{{ project_path }}/src/{{ application_name }}"
     virtualenv: "{{ virtualenv_path }}"
     settings: "{{ django_settings_file }}"
-  environment: django_environment
+  environment: "{{ django_environment }}"
   when: run_django_collectstatic is defined and run_django_collectstatic
   tags: django.collectstatic
