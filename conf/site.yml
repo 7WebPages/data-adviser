@@ -1,8 +1,8 @@
 ---
 
 - include: base.yml
-- include: webservers.yml
 - include: dbservers.yml
+- include: webservers.yml
 - include: cacheservers.yml
 - include: celeryservers.yml
 - include: collectorservers.yml
