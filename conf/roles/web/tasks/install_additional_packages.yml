@@ -1,2 +1,9 @@
 - name: Install Supervisor
   apt: name=supervisor update_cache={{ update_apt_cache }} force=yes state=installed
+
+- name: Install PostgreSQL libraries
+  apt: name={{ item }} update_cache={{ update_apt_cache }} state=installed
+  with_items:
+    - libpq-dev
+    - python-psycopg2
+  tags: packages

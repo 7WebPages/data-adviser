@@ -1,5 +1,5 @@
 - name: remove old repo
-  command: rm -rf {{ project_path }}
+  file: path={{ project_path }} state=absent
 
 - name: Setup the Git repo
   git: repo={{ git_repo }}
