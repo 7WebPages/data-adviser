@@ -11,6 +11,7 @@ queue-servers
 celery-workers
 cache-servers
 elastic-servers
+collector-servers
 
 [django-servers]
 ubuntu-vagrant1
