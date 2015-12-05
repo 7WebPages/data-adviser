@@ -12,6 +12,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         app.vm.box = "ubuntu/trusty64"
         app.vm.network :private_network, ip: "192.168.61.4"
         app.vm.network "forwarded_port", guest: 22, host: 2227, id: 'ssh'
+
+        if Vagrant.has_plugin?("vagrant-cachier")
+            config.cache.scope = :machine
+            config.cache.enable :apt
+            config.cache.synced_folder_opts = {
+                type: :nfs,
+                mount_options: ['rw', 'vers=3', 'tcp', 'nolock']
+            }
+        end
     end
 
     # Celery & queue server (RabbitMQ)
@@ -20,6 +29,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         app.vm.box = "ubuntu/trusty64"
         app.vm.network :private_network, ip: "192.168.61.5"
         app.vm.network "forwarded_port", guest: 22, host: 2228, id: 'ssh'
+
+        if Vagrant.has_plugin?("vagrant-cachier")
+            config.cache.scope = :machine
+            config.cache.enable :apt
+            config.cache.synced_folder_opts = {
+                type: :nfs,
+                mount_options: ['rw', 'vers=3', 'tcp', 'nolock']
+            }
+        end
     end
 
     # PostgreSQL (db) & Apache Cassandra (Cache)
@@ -28,6 +46,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         app.vm.box = "ubuntu/trusty64"
         app.vm.network :private_network, ip: "192.168.61.6"
         app.vm.network "forwarded_port", guest: 22, host: 2229, id: 'ssh'
+
+        if Vagrant.has_plugin?("vagrant-cachier")
+            config.cache.scope = :machine
+            config.cache.enable :apt
+            config.cache.synced_folder_opts = {
+                type: :nfs,
+                mount_options: ['rw', 'vers=3', 'tcp', 'nolock']
+            }
+        end
     end
 
     # collector
@@ -36,6 +63,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         app.vm.box = "ubuntu/trusty64"
         app.vm.network :private_network, ip: "192.168.61.7"
         app.vm.network "forwarded_port", guest: 22, host: 2230, id: 'ssh'
+
+        if Vagrant.has_plugin?("vagrant-cachier")
+            config.cache.scope = :machine
+            config.cache.enable :apt
+            config.cache.synced_folder_opts = {
+                type: :nfs,
+                mount_options: ['rw', 'vers=3', 'tcp', 'nolock']
+            }
+        end
     end
 
     # Elasticsearch
@@ -44,6 +80,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         app.vm.box = "ubuntu/trusty64"
         app.vm.network :private_network, ip: "192.168.61.8"
         app.vm.network "forwarded_port", guest: 22, host: 2231, id: 'ssh'
+
+        if Vagrant.has_plugin?("vagrant-cachier")
+            config.cache.scope = :machine
+            config.cache.enable :apt
+            config.cache.synced_folder_opts = {
+                type: :nfs,
+                mount_options: ['rw', 'vers=3', 'tcp', 'nolock']
+            }
+        end
     end
 
 end
