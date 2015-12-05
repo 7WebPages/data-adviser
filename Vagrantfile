@@ -15,7 +15,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
         if Vagrant.has_plugin?("vagrant-cachier")
             config.cache.scope = :machine
-            config.cache.enable :apt
             config.cache.synced_folder_opts = {
                 type: :nfs,
                 mount_options: ['rw', 'vers=3', 'tcp', 'nolock']
@@ -32,7 +31,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
         if Vagrant.has_plugin?("vagrant-cachier")
             config.cache.scope = :machine
-            config.cache.enable :apt
             config.cache.synced_folder_opts = {
                 type: :nfs,
                 mount_options: ['rw', 'vers=3', 'tcp', 'nolock']
@@ -49,7 +47,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
         if Vagrant.has_plugin?("vagrant-cachier")
             config.cache.scope = :machine
-            config.cache.enable :apt
             config.cache.synced_folder_opts = {
                 type: :nfs,
                 mount_options: ['rw', 'vers=3', 'tcp', 'nolock']
@@ -66,7 +63,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
         if Vagrant.has_plugin?("vagrant-cachier")
             config.cache.scope = :machine
-            config.cache.enable :apt
             config.cache.synced_folder_opts = {
                 type: :nfs,
                 mount_options: ['rw', 'vers=3', 'tcp', 'nolock']
@@ -83,7 +79,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
         if Vagrant.has_plugin?("vagrant-cachier")
             config.cache.scope = :machine
-            config.cache.enable :apt
             config.cache.synced_folder_opts = {
                 type: :nfs,
                 mount_options: ['rw', 'vers=3', 'tcp', 'nolock']
