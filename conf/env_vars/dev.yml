@@ -5,7 +5,7 @@ gunicorn_max_requests: 0
 
 # Database settings
 
-db_host: 127.0.0.1
+db_host: "{{ hostvars[groups['postgresql-servers'][0]]['ansible_eth0']['ipv4']"
 db_user: "{{ application_name }}"
 db_name: "{{ application_name }}"
 db_password: password

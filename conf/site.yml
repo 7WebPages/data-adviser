@@ -1,5 +1,7 @@
 ---
 
+- include: production_hosts.yml
+
 - include: base.yml
 - include: dbservers.yml
 - include: webservers.yml

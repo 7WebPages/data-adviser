@@ -10,17 +10,18 @@
     - name: Delete droplets
       digital_ocean: >
         state=absent
-        id={{ item.id }}
+        id={{ item.value.id }}
         api_token="{{ digitalocean_api_key }}"
         wait_timeout={{ do_timeout }}
-      with_items: "{{ production_servers }}"
+      with_dict: "{{ production_servers }}"
 
     - name: Delete DNS records
       uri:
         status_code: 204
-        url: "https://api.digitalocean.com/v2/domains/{{ item.name }}"
+        url: "https://api.digitalocean.com/v2/domains/{{ item.key }}"
         method: DELETE
         HEADER_Authorization: "Bearer {{ digitalocean_api_key }}"
-      with_items: "{{ production_servers }}"
+      with_dict: "{{ production_servers }}"
 
     - local_action: file path="{{ inventory_dir }}/production_hosts.yml" state=absent
+    - local_action: file path="{{ inventory_dir }}/production_hosts.yml" state=touch

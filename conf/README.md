@@ -22,3 +22,4 @@ ansible-playbook -i development site.yml --vault-password-file password.txt
 ansible-playbook -i production site.yml --vault-password-file password.txt
 
 ansible-playbook -i production digitalocean_create.yml --vault-password-file password.txt -vvvv
+ansible-playbook -i production digitalocean_delete.yml --vault-password-file password.txt -vvvv
