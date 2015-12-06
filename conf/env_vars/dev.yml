@@ -15,8 +15,6 @@ django_secret_key: "{{ django_secret_key }}"
 
 ssl_dest_dir: /etc/ssl
 
-nginx_server_name: "{{ nginx_server_name }}"
-
 run_django_sync_db: yes
 run_django_db_migrations: yes
 run_django_collectstatic: yes
