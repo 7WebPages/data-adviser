@@ -2,13 +2,17 @@
   apt: name=nginx update_cache={{ update_apt_cache }} state=installed
   tags: packages
 
+- stat: path={{ ssl_dest_dir }}/{{ application_name }}.csr
+  register: csr_exists
+
 - name: Generate SSL certificate
-  command: openssl req -subj '{{ openssl_params }}' -new -newkey rsa:2048 -sha256 -days 365 -nodes -x509 -keyout {{ ssl_dest_dir }}/{{ application_name }}.key -out {{ ssl_dest_dir }}/{{ application_name }}.crt
+  command: openssl req -subj '{{ openssl_params }}' -new -newkey rsa:2048 -nodes -keyout {{ ssl_dest_dir }}/{{ application_name }}.key -out {{ ssl_dest_dir }}/{{ application_name }}.csr
+  when: csr_exists.stat.exists == False
   notify: restart nginx
 
 - name: Create the Nginx configuration file
   template: src=nginx_https_site_config.j2
-            dest=/etc/nginx/sites-available/{{ application_name }}
+            dest=/etc/nginx/sites-availabsle/{{ application_name }}
             backup=yes
   notify: reload nginx
   when: vagrant is not defined
