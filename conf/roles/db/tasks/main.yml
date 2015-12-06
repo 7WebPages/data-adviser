@@ -1,3 +1,12 @@
+- name: Add the PostgreSQL public GPG key to the apt repo
+  apt_key: url=https://www.postgresql.org/media/keys/ACCC4CF8.asc
+           state=present
+
+- name: Add PostgreSQL to the sources list
+  apt_repository: repo='deb http://www.rabbitmq.com/debian/ testing main'
+                  update_cache={{ update_apt_cache }}
+                  state=present
+
 - name: Install PostgreSQL
   apt: name={{ item }} update_cache=yes state=installed
   with_items:
@@ -6,10 +15,6 @@
     - libpq-dev
     - python-psycopg2
   tags: packages
-
-#- name: Create cluster
-#  sudo_user: postgres
-#  command: pg_createcluster 9.3 main --start
 
 - name: Ensure the PostgreSQL service is running
   service: name=postgresql state=started enabled=yes
