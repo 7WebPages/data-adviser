@@ -1,1 +1,26 @@
-db_host: "{{ production_servers[groups['postgresql-servers'][0]]"
+git_branch: master
+
+gunicorn_num_workers: 3
+gunicorn_max_requests: 0
+
+# Database settings
+
+db_user: "{{ application_name }}"
+db_name: "{{ application_name }}"
+db_password: password
+db_host: "{{ production_servers[groups['postgresql-servers'][0]]['ip'] }}"
+
+django_settings_file: "{{ application_name }}.settings"
+django_secret_key: "{{ django_secret_key }}"
+
+ssl_dest_dir: /etc/ssl
+
+nginx_server_name: "{{ nginx_server_name }}"
+
+run_django_sync_db: yes
+run_django_db_migrations: yes
+run_django_collectstatic: yes
+
+openssl_params: /CN=artyomboyko.com/O=Artyom Boyko/C=UA
+
+celery_num_workers: 2

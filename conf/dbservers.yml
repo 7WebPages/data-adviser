@@ -5,5 +5,9 @@
     - env_vars/base.yml
     - env_vars/private.yml
     - env_vars/{{ env }}.yml
+  pre_tasks:
+    - include_vars: "production_hosts.yml"
+  tasks:
+    - debug: msg="Database server private ip {{ production_servers[groups['postgresql-servers'][0]]['ip'] }}"
   roles:
     - db

@@ -1,5 +1,5 @@
 {% for item in registered_droplets.results %}
-skipdns.{{ item.item.name }} ansible_ssh_host={% for ip in item.droplet.networks.v4 %}{% if ip.type == 'public' %}{{ ip.ip_address }}{% endif %}{% endfor %}
+{{ item.item.name }} ansible_host={% for ip in item.droplet.networks.v4 %}{% if ip.type == 'public' %}{{ ip.ip_address }}{% endif %}{% endfor %}
 
 {% endfor %}
 
@@ -15,53 +15,53 @@ collector-servers
 [django-servers]
 {% for item in registered_droplets.results %}
 {% if 'django' in item.item.roles %}
-skipdns.{{ item.item.name }}
+{{ item.item.name }}
 {% endif %}
 {% endfor %}
 
 [queue-servers]
 {% for item in registered_droplets.results %}
 {% if 'queue' in item.item.roles %}
-skipdns.{{ item.item.name }}
+{{ item.item.name }}
 {% endif %}
 {% endfor %}
 
 [collector-servers]
 {% for item in registered_droplets.results %}
 {% if 'collector' in item.item.roles %}
-skipdns.{{ item.item.name }}
+{{ item.item.name }}
 {% endif %}
 {% endfor %}
 
 [postgresql-servers]
 {% for item in registered_droplets.results %}
 {% if 'postgresql' in item.item.roles %}
-skipdns.{{ item.item.name }}
+{{ item.item.name }}
 {% endif %}
 {% endfor %}
 
 [celery-workers]
 {% for item in registered_droplets.results %}
 {% if 'celery' in item.item.roles %}
-skipdns.{{ item.item.name }}
+{{ item.item.name }}
 {% endif %}
 {% endfor %}
 
 [cache-servers]
 {% for item in registered_droplets.results %}
 {% if 'cache' in item.item.roles %}
-skipdns.{{ item.item.name }}
+{{ item.item.name }}
 {% endif %}
 {% endfor %}
 
 [elastic-servers]
 {% for item in registered_droplets.results %}
 {% if 'elastic' in item.item.roles %}
-skipdns.{{ item.item.name }}
+{{ item.item.name }}
 {% endif %}
 {% endfor %}
 
 [all:vars]
 env=prod
 nginx_server_name=data-adviser.com
-ansible_ssh_user=root
+ansible_user=root
