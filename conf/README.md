@@ -5,7 +5,7 @@
     sudo pip install httplib2
 
 
-*Issues*:
+*Ansible 2.0 Issues related to this project*:
 
  - https://github.com/ansible/ansible-modules-core/issues/2509
  - https://github.com/ansible/ansible-modules-core/issues/1412
