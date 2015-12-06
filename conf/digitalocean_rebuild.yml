@@ -1,0 +1,18 @@
+---
+
+- hosts: localhost
+  vars_files:
+    - env_vars/digitalocean.yml
+    - env_vars/private.yml
+    - production_hosts.yml
+
+  tasks:
+    - name: Rebuild droplet
+      uri:
+        status_code: 201
+        url: "https://api.digitalocean.com/v2/droplets/{{ item.value.id }}/actions"
+        method: POST
+        HEADER_Authorization: "Bearer {{ digitalocean_api_key }}"
+        body_format: json
+        body: "{\"type\": \"rebuild\", \"image\": \"{{ do_image }}\"}"
+      with_dict: "{{ production_servers }}"
