@@ -19,7 +19,24 @@
 - name: Ensure the PostgreSQL service is running
   service: name=postgresql state=started enabled=yes
 
+- name: Copy PostgreSQL pg_hba.conf file
+  template: src=pg_hba.conf.j2
+            dest=/etc/postgresql/9.4/main/pg_hba.conf
+            backup=yes
+            owner=postgres
+            group=postgres
+  notify: restart postgresql
+
+- name: Copy PostgreSQL config file
+  template: src=postgresql.conf.j2
+            dest=/etc/postgresql/9.4/main/postgresql.conf
+            backup=yes
+            owner=postgres
+            group=postgres
+  notify: restart postgresql
+
 - name: Ensure database is created
+  become: yes
   become_user: postgres
   postgresql_db: name={{ db_name }}
                  encoding='UTF-8'
@@ -29,6 +46,7 @@
                  state=present
 
 - name: Ensure user has access to the database
+  become: yes
   become_user: postgres
   postgresql_user: db={{ db_name }}
                    name={{ db_user }}
@@ -37,6 +55,7 @@
                    state=present
 
 - name: Ensure user does not have unnecessary privileges
+  become: yes
   become_user: postgres
   postgresql_user: name={{ db_user }}
                    role_attr_flags=NOSUPERUSER,NOCREATEDB
