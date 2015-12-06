@@ -12,7 +12,7 @@
 
 - name: Create the Nginx configuration file
   template: src=nginx_https_site_config.j2
-            dest=/etc/nginx/sites-availabsle/{{ application_name }}
+            dest=/etc/nginx/sites-available/{{ application_name }}
             backup=yes
   notify: reload nginx
   when: vagrant is not defined

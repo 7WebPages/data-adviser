@@ -32,3 +32,11 @@ do_droplets:
         size: 512mb,
         roles: ['collector', 'elastic']
       }
+
+do_dns:
+    - {
+        host: "data-adviser.com",
+        type: "CNAME",
+        name: "61db7873a07e88311f0e1cbb0094c82c.data-adviser.com.",
+        data: "1d8089d112b409027a2067bf10d9a89f64b84b48.comodoca.com."
+      }

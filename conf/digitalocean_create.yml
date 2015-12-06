@@ -48,7 +48,7 @@
       with_items: "{{ do_droplets }}"
       register: registered_droplets
 
-    - name: Create DNS records
+    - name: Create DNS domains
       uri:
         status_code: 201
         url: https://api.digitalocean.com/v2/domains
@@ -57,6 +57,16 @@
         body_format: json
         body: "{\"name\": \"{{ item.item.name }}\", \"ip_address\": \"{{ item.droplet.ip_address }}\"}"
       with_items: "{{ registered_droplets.results }}"
+
+    - name: Create DNS records
+      uri:
+        status_code: 201
+        url: "https://api.digitalocean.com/v2/domains/{{ item.host }}/records"
+        method: POST
+        HEADER_Authorization: "Bearer {{ digitalocean_api_key }}"
+        body_format: json
+        body: "{\"type\": \"{{ item.type }}\", \"name\": \"{{ item.name }}\", \"data\": \"{{ item.data }}\"}"
+      with_items: "{{ do_dns }}"
 
     - debug: msg="ID is {{ item.droplet.id }}, IP is {{ item.droplet.ip_address }}"
       with_items: "{{ registered_droplets.results }}"
