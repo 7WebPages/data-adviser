@@ -3,7 +3,7 @@
            state=present
 
 - name: Add PostgreSQL to the sources list
-  apt_repository: repo='deb http://www.rabbitmq.com/debian/ testing main'
+  apt_repository: repo='deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main'
                   update_cache={{ update_apt_cache }}
                   state=present
 
