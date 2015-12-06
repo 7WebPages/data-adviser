@@ -48,6 +48,9 @@
       with_items: "{{ do_droplets }}"
       register: registered_droplets
 
+    - local_action: template src=templates/hosts_template.j2 dest="{{ inventory_dir }}/production_hosts.yml"
+    - include_vars: production_hosts.yml
+
     - name: Create DNS domains
       uri:
         status_code: 201
@@ -55,8 +58,8 @@
         method: POST
         HEADER_Authorization: "Bearer {{ digitalocean_api_key }}"
         body_format: json
-        body: "{\"name\": \"{{ item.item.name }}\", \"ip_address\": \"{{ item.droplet.ip_address }}\"}"
-      with_items: "{{ registered_droplets.results }}"
+        body: "{\"name\": \"{{ item.key }}\", \"ip_address\": \"{{ item.value.public }}\"}"
+      with_dict: "{{ production_servers }}"
 
     - name: Create DNS records
       uri:
@@ -71,5 +74,4 @@
     - debug: msg="ID is {{ item.droplet.id }}, IP is {{ item.droplet.ip_address }}"
       with_items: "{{ registered_droplets.results }}"
 
-    - local_action: template src=templates/hosts_template.j2 dest="{{ inventory_dir }}/production_hosts.yml"
     - local_action: template src=templates/inventory_template.j2 dest="{{ inventory_dir }}/production"
