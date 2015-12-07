@@ -8,5 +8,12 @@
 - include: setup_git_repo.yml
   tags: deploy
 
+- name: Ensure that the default site is disabled
+  template: src=local.py.j2
+            dest={{ project_path }}/src/{{ application_name }}/{{ application_name }}/settings/local.py
+
+- name: Install packages required by the Django app inside virtualenv
+  pip: virtualenv={{ virtualenv_path }} requirements={{ requirements_file }} executable=pip3
+
 - include: set_file_permissions.yml
   tags: deploy

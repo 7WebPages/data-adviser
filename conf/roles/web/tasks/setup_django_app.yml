@@ -1,10 +1,3 @@
-- name: Ensure that the default site is disabled
-  template: src=local.py.j2
-            dest={{ project_path }}/src/{{ application_name }}/{{ application_name }}/settings/local.py
-
-- name: Install packages required by the Django app inside virtualenv
-  pip: virtualenv={{ virtualenv_path }} requirements={{ requirements_file }} executable=pip3
-
 - name: Run the Django syncdb command
   django_manage:
     command: syncdb
