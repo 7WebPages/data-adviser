@@ -4,6 +4,10 @@
     sudo pip install 'dopy>=0.3.6,<=0.3.6'
     sudo pip install httplib2
 
+# Vagrant
+
+    vagrant plugin install vagrant-hostsupdater
+    vagrant plugin install vagrant-cachier
 
 *Ansible 2.0 Issues related to this project*:
 
