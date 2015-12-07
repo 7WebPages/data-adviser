@@ -21,11 +21,3 @@
 
 - name: Supervisor restart flower
   supervisorctl: name=flower state=restarted
-
-- name: Install additional packages
-  apt: name={{ item }} update_cache={{ update_apt_cache }} force=yes state=installed
-  with_items:
-    - redis-server
-
-- name: Ensure the redis service is running
-  service: name=redis-server state=started enabled=yes
