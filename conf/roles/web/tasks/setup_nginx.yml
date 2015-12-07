@@ -7,6 +7,7 @@
   with_items:
     - keys/analytics.crt
     - keys/analytics.key
+  when: vagrant is not defined
 
 - name: Create the Nginx configuration file
   template: src=nginx_https_site_config.j2
