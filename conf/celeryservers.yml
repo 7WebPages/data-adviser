@@ -1,3 +1,12 @@
 ---
 
-- hosts: celery-workers
+- hosts: queue-servers
+  vars_files:
+    - env_vars/base.yml
+    - env_vars/private.yml
+    - env_vars/{{ env }}.yml
+  pre_tasks:
+    - include_vars: "production_hosts.yml"
+  roles:
+    - app
+    - celery
