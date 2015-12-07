@@ -37,6 +37,6 @@ do_dns:
     - {
         host: "data-adviser.com",
         type: "CNAME",
-        name: "61db7873a07e88311f0e1cbb0094c82c.data-adviser.com.",
-        data: "1d8089d112b409027a2067bf10d9a89f64b84b48.comodoca.com."
+        name: "51243599cf2a8fc1b30c03fb564d4368.data-adviser.com.",
+        data: "5aa6b0cb1c0763c5cddd7b14e6621f9b031444c6.comodoca.com."
       }

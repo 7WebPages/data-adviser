@@ -2,13 +2,11 @@
   apt: name=nginx update_cache={{ update_apt_cache }} state=installed
   tags: packages
 
-- stat: path={{ ssl_dest_dir }}/{{ application_name }}.csr
-  register: csr_exists
-
-- name: Generate SSL certificate
-  command: openssl req -subj '{{ openssl_params }}' -new -newkey rsa:2048 -nodes -keyout {{ ssl_dest_dir }}/{{ application_name }}.key -out {{ ssl_dest_dir }}/{{ application_name }}.csr
-  when: csr_exists.stat.exists == False
-  notify: restart nginx
+- name: Copy SSL keys
+  copy: src={{ item }} dest=/etc/ssl/ owner=root
+  with_items:
+    - keys/analytics.crt
+    - keys/analytics.key
 
 - name: Create the Nginx configuration file
   template: src=nginx_https_site_config.j2
