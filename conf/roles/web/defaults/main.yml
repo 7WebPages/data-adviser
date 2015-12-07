@@ -13,7 +13,7 @@ nginx_http_port: 80
 nginx_https_port: 443
 nginx_access_log_file: "{{ application_log_dir }}/nginx_access.log"
 nginx_error_log_file: "{{ application_log_dir }}/nginx_error.log"
-nginx_static_dir: "{{ virtualenv_path }}/{{ project_name }}/{{ application_name }}/{{ application_name }}/assets/"
+nginx_static_dir: "{{ virtualenv_path }}/{{ project_name }}/src/{{ application_name }}/{{ application_name }}/assets/"
 nginx_media_dir: "{{ virtualenv_path }}/media/"
 
 django_environment:
