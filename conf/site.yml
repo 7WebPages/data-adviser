@@ -7,3 +7,4 @@
 - include: celeryservers.yml
 - include: collectorservers.yml
 - include: elasticservers.yml
+- include: queueservers.yml
