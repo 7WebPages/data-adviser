@@ -6,11 +6,3 @@
 
 - name: Add the application user to the application group
   user: name={{ gunicorn_user }} group={{ gunicorn_group }} state=present
-
-- name: Add gunicorn user to vagrant
-  user: name={{ gunicorn_user }} group=vagrant state=present
-  when: vagrant is defined
-
-- name: Add vagrant to gunicorn group
-  user: name=vagrant group={{ gunicorn_group }} state=present
-  when: vagrant is defined
