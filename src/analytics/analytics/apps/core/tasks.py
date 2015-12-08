@@ -9,4 +9,4 @@ class ExampleTask(PeriodicTask):
     run_every = crontab(minute=0, hour=0)
 
     def run(self, *args, **kwargs):
-        print 'test'
+        print('test')
