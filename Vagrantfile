@@ -12,6 +12,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         app.vm.box = "ubuntu/trusty64"
         app.vm.network :private_network, ip: "192.168.61.4"
         app.vm.network "forwarded_port", guest: 22, host: 2227, id: 'ssh'
+        app.vm.network "forwarded_port", guest: 80, host: 8080
 
         if Vagrant.has_plugin?("vagrant-cachier")
             config.cache.scope = :machine
