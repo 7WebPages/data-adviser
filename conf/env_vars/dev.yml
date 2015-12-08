@@ -22,3 +22,11 @@ run_django_collectstatic: yes
 openssl_params: /CN=data-adviser.com/O=Artyom Boyko/C=UA
 
 celery_num_workers: 2
+
+rabbitmq_admin_user: admin
+rabbitmq_admin_password: password
+
+rabbitmq_application_user: "{{ application_name }}"
+rabbitmq_application_password: password
+
+broker_url: "amqp://{{ rabbitmq_application_user }}:{{ rabbitmq_application_password }}@{{ hostvars[groups['queue-servers'][0]]['ansible_eth1']['ipv4']['address'] }}:5672//"
