@@ -1,4 +1,4 @@
 ---
 
 rabbitmq_server_name: "{{ inventory_hostname }}"
-rabbitmq_application_vhost: "{{ application_name }}"
+rabbitmq_application_vhost: "/{{ application_name }}"

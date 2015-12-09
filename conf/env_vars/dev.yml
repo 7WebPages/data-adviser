@@ -29,4 +29,4 @@ rabbitmq_admin_password: password
 rabbitmq_application_user: "{{ application_name }}"
 rabbitmq_application_password: password
 
-broker_url: "amqp://{{ rabbitmq_application_user }}:{{ rabbitmq_application_password }}@{{ hostvars[groups['queue-servers'][0]]['ansible_eth1']['ipv4']['address'] }}:5672//"
+broker_url: "amqp://{{ rabbitmq_application_user }}:{{ rabbitmq_application_password }}@{{ hostvars[groups['queue-servers'][0]]['ansible_eth1']['ipv4']['address'] }}:5672/{{ application_name }}"
