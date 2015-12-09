@@ -18,6 +18,12 @@
   rabbitmq_plugin: names=rabbitmq_management state=enabled
   notify: restart rabbitmq-server
 
+- name: Re-bind Rabbitmq
+  template: src=rabbitmq-env.conf
+            dest=/etc/rabbitmq
+            backup=yes
+  notify: restart rabbitmq-server
+
 - include: setup_vhosts.yml
 
 - include: setup_users.yml
