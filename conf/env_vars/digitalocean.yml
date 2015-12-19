@@ -5,7 +5,7 @@ do_ssh_pub_key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
 do_ssh_private_key: "~/.ssh/id_rsa"
 
 do_region: ams2 # Amsterdam
-do_image: 14530089 # Ubuntu 14.04.3 x64
+do_image: "ubuntu-14-04-x64" # Ubuntu 14.04.3 x64
 
 do_timeout: 500
 

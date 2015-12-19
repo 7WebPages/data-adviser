@@ -37,3 +37,7 @@
 **Destroy digitalocean servers**
 
     ansible-playbook -i production digitalocean_delete.yml --vault-password-file password.txt -vvvv
+    
+**Rebuild digitalocean servers**
+
+    ansible-playbook -i production digitalocean_rebuild.yml --vault-password-file password.txt -vvvv
