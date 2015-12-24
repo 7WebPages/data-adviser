@@ -16,7 +16,7 @@ os.chdir(BASE_DIR)
 from django.core.wsgi import get_wsgi_application  # noqa
 application = get_wsgi_application()
 
-from core import models  #noqa
+from core import models  # noqa
 
 if __name__ == '__main__':
     spiders = models.Provider.objects.filter(enabled=True).all()

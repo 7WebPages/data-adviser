@@ -1,4 +1,4 @@
-import aiohttp
+import requests
 
 from ..base import BaseCollector
 
@@ -9,6 +9,7 @@ class OlxSpider(BaseCollector):
     """
 
     name = 'OlxSpider'
+    __CATEGORIES_ENTRYPOINT = 'http://olx.ua/sitemap/'
     __MAX_REQUESTS = 5
 
     def __init__(self):
@@ -21,4 +22,5 @@ class OlxSpider(BaseCollector):
         pass
 
     def update_categories(self):
-        print(self.loop)
+        page = requests.get(self.__CATEGORIES_ENTRYPOINT)
+        print(page)
