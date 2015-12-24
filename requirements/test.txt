@@ -2,5 +2,5 @@
 tox
 codecov
 django-nose==1.4.2
-coverage==4.0.2
-flake8==2.5.0
+coverage==4.0.3
+flake8==2.5.1

@@ -1,3 +1,2 @@
 [run]
 branch = true
-omit = ../*migrations*

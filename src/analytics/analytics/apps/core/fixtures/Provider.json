@@ -1,0 +1,10 @@
+[
+{
+  "fields": {
+    "name": "Olx",
+    "enabled": true
+  },
+  "pk": 1,
+  "model": "core.provider"
+}
+]
