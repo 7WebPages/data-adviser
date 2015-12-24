@@ -1,1 +1,1 @@
-from .olx import OlxSpider
+from .olx import OlxSpider  # noqa
