@@ -7,6 +7,8 @@ class BaseCollector(metaclass=ABCMeta):
     Base class for all the spiders to inherit from
     """
 
+    _PARSER = 'lxml'
+
     def __init__(self, max_requests):
         self.loop = asyncio.get_event_loop()
         self.sem = asyncio.Semaphore(max_requests)

@@ -1,3 +1,4 @@
+from bs4 import BeautifulSoup
 import requests
 
 from ..base import BaseCollector
@@ -22,5 +23,6 @@ class OlxSpider(BaseCollector):
         pass
 
     def update_categories(self):
-        page = requests.get(self.__CATEGORIES_ENTRYPOINT)
-        print(page)
+        response = requests.get(self.__CATEGORIES_ENTRYPOINT)
+        soup = BeautifulSoup(response.text, self._PARSER)
+        print(soup.find_all('a'))
