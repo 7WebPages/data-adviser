@@ -28,6 +28,11 @@
   tags:
     - queue
 
+- name: Ensure that the RabbitMQ service is running
+  service: name=rabbitmq-server state=started enabled=yes
+  tags:
+    - queue
+
 - name: Enable the RabbitMQ Management Console
   rabbitmq_plugin: names=rabbitmq_management state=enabled
   notify: restart rabbitmq-server
