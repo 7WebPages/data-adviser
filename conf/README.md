@@ -41,3 +41,7 @@
 **Rebuild digitalocean servers**
 
     ansible-playbook -i production digitalocean_rebuild.yml --vault-password-file password.txt -vvvv
+    
+**Reboot servers**
+
+    ansible -i production prodservers -a "/sbin/reboot"

@@ -17,8 +17,14 @@ class BaseCollector(metaclass=ABCMeta):
         return self.name
 
     @abstractmethod
+    def run(self):
+        """
+        Main method for main scraping process.
+        """
+
+    @abstractmethod
     def update_categories(self):
         """
         Method that runs before main spider runs.
-        It updates all the categories from source website
+        It updates all the categories from source website.
         """

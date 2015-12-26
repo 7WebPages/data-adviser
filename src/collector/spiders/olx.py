@@ -25,4 +25,6 @@ class OlxSpider(BaseCollector):
     def update_categories(self):
         response = requests.get(self.__CATEGORIES_ENTRYPOINT)
         soup = BeautifulSoup(response.text, self._PARSER)
-        print(soup.find_all('a'))
+        import pdb; pdb.set_trace()
+        for s in soup.select('div.site-map').pop().find_all('a', class_='link'):
+            print(s.attrs['href'], s.text)

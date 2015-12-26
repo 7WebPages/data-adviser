@@ -6,6 +6,8 @@
                  vhost=/
                  tags=administrator
                  state=present
+  tags:
+    - queue
 
 - name: Create application user
   rabbitmq_user: user={{ rabbitmq_application_user }}
@@ -15,7 +17,11 @@
                  read_priv=.*
                  write_priv=.*
                  state=present
+  tags:
+    - queue
 
 - name: Ensure the default 'guest' user doesn't exist
   rabbitmq_user: user=guest
                  state=absent
+  tags:
+    - queue

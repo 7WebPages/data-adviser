@@ -3,26 +3,36 @@
 - name: Add the RabbitMQ public GPG key to the apt repo
   apt_key: url=http://www.rabbitmq.com/rabbitmq-signing-key-public.asc
            state=present
+  tags:
+    - queue
 
 - name: Add RabbitMQ to the sources list
   apt_repository: repo='deb http://www.rabbitmq.com/debian/ testing main'
                   update_cache={{ update_apt_cache }}
                   state=present
+  tags:
+    - queue
 
 - name: Install RabbitMQ server
   apt: name={{ item }} update_cache={{ update_apt_cache }} force=yes state=installed
   with_items:
     - rabbitmq-server
-
-- name: Enable the RabbitMQ Management Console
-  rabbitmq_plugin: names=rabbitmq_management state=enabled
-  notify: restart rabbitmq-server
+  tags:
+    - queue
 
 - name: Re-bind Rabbitmq
   template: src=rabbitmq-env.conf
             dest=/etc/rabbitmq
             backup=yes
   notify: restart rabbitmq-server
+  tags:
+    - queue
+
+- name: Enable the RabbitMQ Management Console
+  rabbitmq_plugin: names=rabbitmq_management state=enabled
+  notify: restart rabbitmq-server
+  tags:
+    - queue
 
 - include: setup_vhosts.yml
 
@@ -30,3 +40,5 @@
 
 - name: Ensure that the RabbitMQ service is running
   service: name=rabbitmq-server state=started enabled=yes
+  tags:
+    - queue

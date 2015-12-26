@@ -17,6 +17,8 @@
       - python3-setuptools
       - libjpeg-dev
       - python3.5
+      - libxml2-dev
+      - libxslt1-dev
 
 - name: Install virtualenv
   pip: name=virtualenv executable=pip3
